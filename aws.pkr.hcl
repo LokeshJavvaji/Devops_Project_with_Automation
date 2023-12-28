@@ -35,14 +35,14 @@ build {
   sources = [
     "source.amazon-ebs.ubuntu_20"
   ]
-  provisioner "file" {
+  /*provisioner "file" {
     source      = "assets"
     destination = "/tmp/"
-  }
+  }*/
   provisioner "ansible" {
     ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_NOCOWS=1"]
     extra_arguments  = ["--extra-vars", "desktop=false", "-vv"]
-    playbook_file    = "${path.root}/playbooks/playbook.yml"
+    playbook_file    = "${path.root}/ansible/playbook.yml"
     user             = var.ssh_username
   }
 
