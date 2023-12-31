@@ -1,8 +1,12 @@
 #! /bin/bash
 echo "RDS Endpoint: ${rds_endpoint}" >> /tmp/db-app.log
 sudo apt-get install git
-cd /var/www/html/
-git clone https://github.com/LokeshJavvaji/studentsapp.git
+
+git clone https://github.com/LokeshJavvaji/Devops_Project_with_Automation.git
+
+
+sudo mv Devops_Project_with_Automation/webapp
+
 #sudo chown -R apache:apache /var/www/html/demoapp
 sudo mv /var/www/html/index.html  /var/www/html/index.html.bkp
 
