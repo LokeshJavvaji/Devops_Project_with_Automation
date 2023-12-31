@@ -1,7 +1,7 @@
 locals {
   user_data_script = <<-EOF
                       #!/bin/bash  
-                      echo "export RDS_ENDPOINT=${module.rdsdb.db_instance_address}" >> /etc/environment
+                      echo " export RDS_ENDPOINT=${module.rdsdb.db_instance_address}" >> /etc/environment
                       ${templatefile("webapp.tftpl", { rds_endpoint = module.rdsdb.db_instance_address })}
                     EOF
 
