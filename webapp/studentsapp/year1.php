@@ -49,18 +49,21 @@
             <th>Unit</th>
             <th>NOTES</th>
         </tr>
-	<?php include 'db_connect.php' ?>
+	
         <?php
-        // ... Your PHP code for the first table ...$servername = "localhost";
-      //  $servername = "localhost"; $username = "root";
-      //  $password = "";
-      //  $dbname = "fullstack";
+     //... Your PHP code for the first table ...$servername = "localhost";
+        $rds_endpoint = getenv('RDS_ENDPOINT');
 
-       // $conn = new mysqli($servername, $username, $password, $dbname);
+        $servername = $rds_endpoint;
+         $username = "admin";
+        $password = "lokesh123";
+        $dbname = "fullstack";
 
-       // if ($conn->connect_error) {
-         //   die("Connection failed: " . $conn->connect_error);
-       // }
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+       }
 
         $sql = "SELECT * FROM notes WHERE year = 1 ORDER BY sem,sub,unit";
 
@@ -90,18 +93,19 @@
             
             <th>SYLLABUS</th>
         </tr>
-	<?php include('db_connect.php'); ?>
+	
         <?php
-        //$servername = "localhost";
-       // $username = "root";
-       // $password = "";
-       // $dbname = "fullstack";
+        $rds_endpoint = getenv('RDS_ENDPOINT');
+        $servername = $rds_endpoint;;
+        $username = "admin";
+        $password = "lokesh123";
+       $dbname = "fullstack";
 
-       // $conn = new mysqli($servername, $username, $password, $dbname);
+       $conn = new mysqli($servername, $username, $password, $dbname);
 
-       // if ($conn->connect_error) {
-       //     die("Connection failed: " . $conn->connect_error);
-       // }
+       if ($conn->connect_error) {
+           die("Connection failed: " . $conn->connect_error);
+       }
 
         $sql = "SELECT * FROM syllabus WHERE year = 1 ";
 

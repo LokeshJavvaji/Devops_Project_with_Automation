@@ -205,19 +205,18 @@ html, body {
         </div>
     </div>
     </div>
-<?php include('db_connect.php'); ?>
-    <?php
-//$servername = "localhost";
-//$username = "root";
+<?php 
+$rds_endpoint = getenv('RDS_ENDPOINT');
+$servername = $rds_endpoint;;
+$username = "admin";
+$password = "lokesh123";
+$dbname = "fullstack";
 
-//$password = "";
-//$dbname = "fullstack";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-//$conn = new mysqli($servername, $username, $password, $dbname);
-
-//if ($conn->connect_error) {
- //   die("Connection failed: " . $conn->connect_error);
-//}
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["year"];

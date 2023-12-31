@@ -317,18 +317,18 @@ html, body {
     // Initially update subject options when the page loads
     updateSubjectOptions();
 </script>
-<?php include('db_connect.php'); ?>
-<?php
-//$servername = "localhost";
-//$username = "root";
-//$password = "";
-//$dbname = "fullstack";
+<?php 
+$rds_endpoint = getenv('RDS_ENDPOINT');
+$servername = $rds_endpoint;;
+$username = "admin";
+$password = "lokesh123";
+$dbname = "fullstack";
 
-//$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-//if ($conn->connect_error) {
-//    die("Connection failed: " . $conn->connect_error);
-//}
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $year = $_POST['year'];
