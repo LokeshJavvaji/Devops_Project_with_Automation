@@ -317,7 +317,7 @@ html, body {
     // Initially update subject options when the page loads
     updateSubjectOptions();
 </script>
-<?php include('./db_connect.php'); ?>
+<?php include('db_connect.php'); ?>
 <?php
 //$servername = "localhost";
 //$username = "root";

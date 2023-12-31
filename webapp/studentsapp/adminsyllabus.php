@@ -205,7 +205,7 @@ html, body {
         </div>
     </div>
     </div>
-<?php include('./db_connect.php'); ?>
+<?php include('db_connect.php'); ?>
     <?php
 //$servername = "localhost";
 //$username = "root";

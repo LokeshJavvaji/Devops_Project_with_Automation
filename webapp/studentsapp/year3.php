@@ -49,7 +49,7 @@
             <th>Unit</th>
             <th>NOTES</th>
         </tr>
-	<?php include('./db_connect.php'); ?>
+	<?php include('db_connect.php'); ?>
         <?php
         // ... Your PHP code for the first table ...$servername = "localhost";
        // $servername = "localhost"; $username = "root";
@@ -90,7 +90,7 @@
             
             <th>SYLLABUS</th>
         </tr>
-	<?php include('./db_connect.php'); ?>
+	<?php include('db_connect.php'); ?>
         <?php
         //$servername = "localhost";
        // $username = "root";
