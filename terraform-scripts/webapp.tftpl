@@ -4,11 +4,12 @@ sudo apt-get install git
 
 git clone https://github.com/LokeshJavvaji/Devops_Project_with_Automation.git
 
+sudo mv /var/www/html/index.html  /var/www/html/index.html.bkp
 
-sudo mv Devops_Project_with_Automation/webapp
+sudo mv Devops_Project_with_Automation/webapp/* /var/www/html/
 
 #sudo chown -R apache:apache /var/www/html/demoapp
-sudo mv /var/www/html/index.html  /var/www/html/index.html.bkp
+
 
 mysql -h ${rds_endpoint} -u admin -plokesh123 fullstack < /var/www/html/studentsapp/fullstack.sql
 
