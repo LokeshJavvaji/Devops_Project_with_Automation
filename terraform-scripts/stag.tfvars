@@ -18,4 +18,4 @@ instance_keypair = "project-key"
 private_instance_count = 2
 
 #DNS Variables
-dns_name = "stagstudentsapp.loke19.shop"
+dns_name = "stagwebapp.loke19.shop"

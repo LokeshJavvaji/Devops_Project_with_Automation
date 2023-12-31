@@ -11,22 +11,22 @@ sudo mv Devops_Project_with_Automation/webapp/* /var/www/html/
 #sudo chown -R apache:apache /var/www/html/demoapp
 
 
-mysql -h ${rds_endpoint} -u admin -plokesh123 fullstack < /var/www/html/studentsapp/fullstack.sql
+mysql -h ${rds_endpoint} -u admin -plokesh123 recruitment_db < /var/www/html/Recruitment_Management_System/database/recruitment_db.sql
 
-sudo chown -R apache:apache /var/www/html/your_app
+sudo chown -R apache:apache /var/www/html/Recruitment_Management_System
 
               # Configure database connection in PHP
 sudo echo "<?php
         \$servername = ${rds_endpoint};
         \$username ="admin";
         \$password = "lokesh123";
-         \$dbname = "fullstack";
+         \$dbname = "recruitment_db";
         \$conn = new mysqli(\$servername, \$username, \$password, \$dbname);
 
          if (\$conn->connect_error) {
             die('Connection failed: ' . \$conn->connect_error);
          }
-         ?>"  >  /var/www/html/studentsapp/db_connect.php
+         ?>"  >  /var/www/html/Recruitment_Management_System/admin/db_connect.php
 
 sudo systemctl restart mysql
 

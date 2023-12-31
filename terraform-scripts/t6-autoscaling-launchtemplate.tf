@@ -1,18 +1,7 @@
 locals {
   user_data_script = <<-EOF
                       #!/bin/bash
-                      RDS_ENDPOINT="your_rds_endpoint_value"
-                      VIRTUAL_HOST_FILE="/etc/apache2/sites-available/000-default.conf"
-
-                      if [ -f "$VIRTUAL_HOST_FILE" ]; then
-                          echo "Setting environment variable in $VIRTUAL_HOST_FILE"
-                          echo "SetEnv RDS_ENDPOINT=\"$RDS_ENDPOINT\"" | sudo tee -a "$VIRTUAL_HOST_FILE" > /dev/null
-                          
-                          echo "Restarting Apache"
-                          sudo systemctl restart apache2
-                      else
-                          echo "Error: Virtual host file $VIRTUAL_HOST_FILE not found."
-                      fi
+            
                       ${templatefile("webapp.tftpl", { rds_endpoint = module.rdsdb.db_instance_address })}
                     EOF
 

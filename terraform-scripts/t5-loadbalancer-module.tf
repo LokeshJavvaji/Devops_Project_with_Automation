@@ -60,7 +60,7 @@ module "alb" {
           }]
           conditions = [{
             path_pattern = {
-              values = ["/studentsapp*"]
+              values = ["/Recruitment_Management_System*"]
             }
           }]
         }# End of myapp1-rule
@@ -86,7 +86,7 @@ module "alb" {
       health_check = {
         enabled             = true
         interval            = 30
-        path                = "/studentsapp/"
+        path                = "/Recruitment_Management_System/index.php"
         port                = "traffic-port"
         healthy_threshold   = 3
         unhealthy_threshold = 3
