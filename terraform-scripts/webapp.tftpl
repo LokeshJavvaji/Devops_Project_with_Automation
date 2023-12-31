@@ -1,0 +1,30 @@
+#! /bin/bash
+echo "RDS Endpoint: ${rds_endpoint}" >> /tmp/db-app.log
+sudo apt-get install git
+cd /var/www/html/
+git clone https://github.com/LokeshJavvaji/studentsapp.git
+#sudo chown -R apache:apache /var/www/html/demoapp
+sudo mv /var/www/html/index.html  /var/www/html/index.html.bkp
+
+mysql -h ${rds_endpoint} -u admin -plokesh123 fullstack < /var/www/html/studentsapp/fullstack.sql
+
+sudo chown -R apache:apache /var/www/html/your_app
+
+              # Configure database connection in PHP
+sudo echo "<?php
+        \$servername = ${rds_endpoint};
+        \$username ="admin";
+        \$password = "lokesh123";
+         \$dbname = "fullstack";
+        \$conn = new mysqli(\$servername, \$username, \$password, \$dbname);
+
+         if (\$conn->connect_error) {
+            die('Connection failed: ' . \$conn->connect_error);
+         }
+         ?>"  >  /var/www/html/studentsapp/db_connect.php
+
+sudo systemctl restart mysql
+
+sudo systemctl restart apache2
+
+sudo apt-get install -y telnet
