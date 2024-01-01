@@ -26,15 +26,13 @@ sudo echo "<?php
          ?>"  >  /var/www/html/Recruitment_Management_System/admin/db_connect.php
 # Corrected PHP Script
 sudo apt update
-sudo apt install ruby-full\
+sudo apt install ruby-full
 sudo apt install wget
 cd /home/ubuntu
 wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
 chmod +x ./install
 sudo ./install auto
-sudo ./install auto > /tmp/logfile
-aws s3 ls s3://aws-codedeploy-us=-east-1/releases/ | grep '\.deb$'
-sudo ./install auto -v releases/codedeploy-agent-###.deb > /tmp/logfile
+
 sudo service codedeploy-agent status
 sudo systemctl restart mysql
 

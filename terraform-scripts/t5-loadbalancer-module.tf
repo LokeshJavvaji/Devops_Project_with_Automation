@@ -72,9 +72,6 @@ module "alb" {
   target_groups = {
   # Target Group-1: mytg1    
    mytg1 = {
-      # VERY IMPORTANT: We will create aws_lb_target_group_attachment resource separately when we use create_attachment = false, refer above GitHub issue URL.
-      ## Github ISSUE: https://github.com/terraform-aws-modules/terraform-aws-alb/issues/316
-      ## Search for "create_attachment" to jump to that Github issue solution
       create_attachment = false
       name_prefix                       = "mytg1-"
       protocol                          = "HTTP"
