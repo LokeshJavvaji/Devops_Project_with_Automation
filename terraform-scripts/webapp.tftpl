@@ -17,28 +17,15 @@ sudo chown -R apache:apache /var/www/html/Recruitment_Management_System
 
               # Configure database connection in PHP
 sudo echo "<?php
-        \$servername = "${rds_endpoint}";
-        \$username =""admin"";
-        \$password = ""lokesh123"";
-         \$dbname = ""recruitment_db"";
-        \$conn = new mysqli(\$servername, \$username, \$password, \$dbname);
+        
+        \$conn = new mysqli('${rds_endpoint}', 'admin' , 'lokesh' , 'recruitment_db);
 
          if (\$conn->connect_error) {
             die('Connection failed: ' . \$conn->connect_error);
          }
          ?>"  >  /var/www/html/Recruitment_Management_System/admin/db_connect.php
 # Corrected PHP Script
-sudo bash -c 'printf "<?php
-        \$servername = \"${rds_endpoint}\";
-        \$username = \"admin\";
-        \$password = \"lokesh123\";
-        \$dbname = \"recruitment_db\";
-        \$conn = new mysqli(\$servername, \$username, \$password, \$dbname);
 
-         if (\$conn->connect_error) {
-            die('Connection failed: ' . \$conn->connect_error);
-         }
-         ?>\n" > /var/www/html/Recruitment_Management_System/admin/db_connect.php'
 
 sudo systemctl restart mysql
 
