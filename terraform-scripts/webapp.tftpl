@@ -2,11 +2,11 @@
 echo "RDS Endpoint: ${rds_endpoint}" >> /tmp/db-app.log
 sudo apt-get install git
 
-git clone https://github.com/LokeshJavvaji/Devops_Project_with_Automation.git
+git clone https://github.com/LokeshJavvaji/webapp.git
 
 sudo mv /var/www/html/index.html  /var/www/html/index.html.bkp
 
-sudo mv Devops_Project_with_Automation/webapp/* /var/www/html/
+sudo mv Devops_Project_with_Automation/webapp/webapp/* /var/www/html/
 
 #sudo chown -R apache:apache /var/www/html/demoapp
 
@@ -25,8 +25,17 @@ sudo echo "<?php
          }
          ?>"  >  /var/www/html/Recruitment_Management_System/admin/db_connect.php
 # Corrected PHP Script
-
-
+sudo apt update
+sudo apt install ruby-full\
+sudo apt install wget
+cd /home/ubuntu
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+sudo ./install auto > /tmp/logfile
+aws s3 ls s3://aws-codedeploy-us=-east-1/releases/ | grep '\.deb$'
+sudo ./install auto -v releases/codedeploy-agent-###.deb > /tmp/logfile
+sudo service codedeploy-agent status
 sudo systemctl restart mysql
 
 sudo systemctl restart apache2
