@@ -18,7 +18,7 @@ sudo chown -R apache:apache /var/www/html/Recruitment_Management_System
               # Configure database connection in PHP
 sudo echo "<?php
         
-        \$conn = new mysqli('${rds_endpoint}', 'admin' , 'lokesh' , 'recruitment_db);
+        \$conn = new mysqli('${rds_endpoint}', 'admin' , 'lokesh123' , 'recruitment_db');
 
          if (\$conn->connect_error) {
             die('Connection failed: ' . \$conn->connect_error);
