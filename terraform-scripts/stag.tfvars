@@ -19,3 +19,8 @@ private_instance_count = 2
 
 #DNS Variables
 dns_name = "stagwebapp.loke19.shop"
+
+#RDS Variables
+db_name                = "recruitment_db"
+db_instance_identifier = "recruitmentdb2"
+db_username            = "admin"
