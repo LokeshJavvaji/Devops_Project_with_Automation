@@ -25,7 +25,7 @@ span.hightlight{
                     <div class="col-md-12 mb-2 text-left">
                         <div class="card">
                             <div class="card-body">
-                                  <h4 class="text-center">Find Vacancies</h4>
+                                  <h4 class="text-center">Get Vacancies</h4>
                                <div class="form-group">
                                    <div class="input-group">
                                        <input type="text" class="form-control" id="filter">
