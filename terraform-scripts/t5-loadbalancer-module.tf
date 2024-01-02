@@ -1,7 +1,6 @@
 # Terraform AWS Application Load Balancer (ALB)
 module "alb" {
   source  = "terraform-aws-modules/alb/aws"
-  #version = "5.16.0"
   version = "9.4.0"
 
   name = "${local.name}-alb"
@@ -9,8 +8,6 @@ module "alb" {
   vpc_id = module.vpc.vpc_id
   subnets = module.vpc.public_subnets
   security_groups = [module.loadbalancer_sg.security_group_id]
-
-  # For example only
   enable_deletion_protection = false
 
 # Listeners
@@ -38,11 +35,10 @@ module "alb" {
         content_type = "text/plain"
         message_body = "Fixed Static message - for Root Context"
         status_code  = "200"
-      }# End of Fixed Response
+      }
 
       # Load Balancer Rules
       rules = {
-        # Rule-1: myapp1-rule
         myapp1-rule = {
           priority = 10
           actions = [{
@@ -63,9 +59,8 @@ module "alb" {
               values = ["/Recruitment_Management_System*"]
             }
           }]
-        }# End of myapp1-rule
-      # End Rules
-    }# End Listener-2: my-https-listener
+        } 
+    }
   }# End Listeners
   }
 # Target Groups

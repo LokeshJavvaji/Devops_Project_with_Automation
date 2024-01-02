@@ -1,6 +1,4 @@
-# AWS EC2 Security Group Terraform Outputs
 
-# Public Bastion Host Security Group Outputs
 ## public_bastion_sg_group_id
 output "public_bastion_sg_group_id" {
   description = "The ID of the security group"

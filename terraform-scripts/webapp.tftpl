@@ -8,7 +8,6 @@ sudo mv /var/www/html/index.html  /var/www/html/index.html.bkp
 
 sudo mv Devops_Project_with_Automation/webapp/* /var/www/html/
 
-#sudo chown -R apache:apache /var/www/html/demoapp
 
 
 mysql -h ${rds_endpoint} -u admin -plokesh123 recruitment_db < /var/www/html/Recruitment_Management_System/database/recruitment_db.sql
@@ -24,7 +23,6 @@ sudo echo "<?php
             die('Connection failed: ' . \$conn->connect_error);
          }
          ?>"  >  /var/www/html/Recruitment_Management_System/admin/db_connect.php
-# Corrected PHP Script
 sudo apt update
 sudo apt install ruby-full
 sudo apt install wget

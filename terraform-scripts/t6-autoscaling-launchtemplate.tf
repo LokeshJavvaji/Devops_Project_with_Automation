@@ -10,7 +10,6 @@ locals {
 # Launch Template Resource
 resource "aws_launch_template" "my_launch_template1" {
   name_prefix = "${local.name}-"
-  #name = "my-launch-template"
   description = "My Launch template"
   image_id = data.aws_ami.amzubuntu.id
   instance_type = var.instance_type
@@ -19,15 +18,13 @@ resource "aws_launch_template" "my_launch_template1" {
   key_name = var.instance_keypair
   user_data = local.encoded_user_data
   ebs_optimized = true 
-  #default_version = 1
   update_default_version = true 
   block_device_mappings {
     device_name = "/dev/sda1"
-    ebs {
-      #volume_size = 10      
-      volume_size = 20 # LT Update Testing - Version 2 of LT              
+    ebs {    
+      volume_size = 20           
       delete_on_termination = true
-      volume_type = "gp2" # default  is gp2 
+      volume_type = "gp2"
     }
    }
   monitoring {

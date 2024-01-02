@@ -1,4 +1,4 @@
-# AWS EC2 Security Group Terraform Module
+
 # Security Group for Private EC2 Instances
 module "private_sg" {
   source  = "terraform-aws-modules/security-group/aws"

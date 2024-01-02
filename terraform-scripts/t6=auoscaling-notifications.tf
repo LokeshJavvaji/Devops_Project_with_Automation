@@ -1,10 +1,7 @@
-# Autoscaling Notifications
-## AWS Bug for SNS Topic: https://stackoverflow.com/questions/62694223/cloudwatch-alarm-pending-confirmation
-## Due to that create SNS Topic with unique name 
+
 
 ## SNS - Topic
 resource "aws_sns_topic" "myasg_sns_topic" {
-  #name = "myasg-sns-topic-${random_pet.this.id}"
   name = "${local.name}-${random_pet.this.id}"
 } 
 
@@ -12,7 +9,7 @@ resource "aws_sns_topic" "myasg_sns_topic" {
 resource "aws_sns_topic_subscription" "myasg_sns_topic_subscription" {
   topic_arn = aws_sns_topic.myasg_sns_topic.arn
   protocol  = "email"
-  endpoint  = "lokeshjavvaji94@gmail.com"
+  endpoint  = "lokeshjavvaji111@gmail.com"
 }
 
 ## Create Autoscaling Notification Resource

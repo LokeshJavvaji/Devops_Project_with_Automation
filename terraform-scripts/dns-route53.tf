@@ -4,7 +4,7 @@ variable "dns_name" {
   description = "DNS Name to support multiple environments"
   type = string   
 }
-## Default DNS
+# Default DNS
 resource "aws_route53_record" "default_dns" {
   zone_id = data.aws_route53_zone.mydomain.zone_id
   name    = var.dns_name

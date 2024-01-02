@@ -1,26 +1,21 @@
 # Create AWS RDS Database
 module "rdsdb" {
   source  = "terraform-aws-modules/rds/aws"
-  #version = "2.34.0"
-  #version = "3.0.0"
   version = "6.3.0"
   
   identifier = var.db_instance_identifier
-
-  #name     = var.db_name  # Initial Database Name - DEPRECATED
-  db_name     = var.db_name  # Added as part of Module v6.3.0
+  db_name     = var.db_name  
   username = var.db_username
   password = var.db_password
-  manage_master_user_password = false # Added as part of Module v6.3.0
+  manage_master_user_password = false 
   port     = 3306
 
 
   multi_az               = true
-  create_db_subnet_group = true # Added as part of Module v6.3.0
+  create_db_subnet_group = true 
   subnet_ids             = module.vpc.database_subnets
   vpc_security_group_ids = [module.rdsdb_sg.security_group_id]
 
-  # All available versions: http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt
   engine               = "mysql"
   engine_version       = "8.0.35"
   family               = "mysql8.0" # DB parameter group
@@ -42,8 +37,7 @@ module "rdsdb" {
 
   performance_insights_enabled          = true
   performance_insights_retention_period = 7
-  #create_monitoring_role                = true
-  #monitoring_interval                   = 60
+
 
   parameters = [
     {

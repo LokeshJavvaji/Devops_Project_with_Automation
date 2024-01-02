@@ -50,13 +50,6 @@ output "db_instance_username" {
   sensitive   = true
 }
 
-/*
-output "db_instance_password" {
-  description = "The database password (this password may be old, because Terraform doesn't track it after initial creation)"
-  value       = module.rdsdb.db_instance_password
-  sensitive   = true
-}
-*/
 output "db_instance_port" {
   description = "The database port"
   value       = module.rdsdb.db_instance_port

@@ -1,4 +1,3 @@
-# VPC Output Values
 
 # VPC ID
 output "vpc_id" {

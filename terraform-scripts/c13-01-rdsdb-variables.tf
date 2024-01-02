@@ -1,5 +1,3 @@
-# Terraform AWS RDS Database Variables
-# Place holder file for AWS RDS Database
 
 # DB Name
 variable "db_name" {

@@ -19,8 +19,8 @@ private_instance_count = 2
 
 #DNS Variables
 dns_name = "devwebapp.loke19.shop"
-#RDS
 
+#RDS
 db_name                = "recruitment_db"
 db_instance_identifier = "recruitmentdb1"
 db_username            = "admin"
