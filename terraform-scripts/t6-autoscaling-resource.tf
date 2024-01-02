@@ -2,7 +2,7 @@
 resource "aws_autoscaling_group" "my_asg" {
   name_prefix = "${local.name}-app"  
   max_size = 10
-  min_size = 4
+  min_size = 3
   desired_capacity = 4    
   vpc_zone_identifier = module.vpc.private_subnets
   target_group_arns = [module.alb.target_groups["mytg1"].arn] 
