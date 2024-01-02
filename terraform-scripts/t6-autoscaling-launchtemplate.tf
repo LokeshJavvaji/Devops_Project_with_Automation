@@ -33,7 +33,7 @@ resource "aws_iam_role_policy_attachment" "s3_full_access_policy" {
 }
 resource "aws_iam_instance_profile" "s3access" {
   name = "s3access"
-  role = [aws_iam_role.s3_full_access_role.name]
+  role = aws_iam_role.s3_full_access_role.name
 }
 # Launch Template Resource
 resource "aws_launch_template" "my_launch_template1" {
