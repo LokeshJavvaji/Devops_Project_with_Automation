@@ -13,7 +13,9 @@ resource "aws_launch_template" "my_launch_template1" {
   description = "My Launch template"
   image_id = data.aws_ami.amzubuntu.id
   instance_type = var.instance_type
-
+  iam_instance_profile {
+    arn = "arn:aws:iam::424878232361:instance-profile/s2-role"
+  }
   vpc_security_group_ids = [ module.private_sg.security_group_id ]
   key_name = var.instance_keypair
   user_data = local.encoded_user_data
