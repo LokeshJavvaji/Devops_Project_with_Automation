@@ -8,8 +8,8 @@ resource "aws_autoscaling_group" "my_asg" {
   target_group_arns = [module.alb.target_groups["mytg1"].arn] 
   health_check_type = "EC2"
   launch_template {
-    id = aws_launch_template.my_launch_template1.id 
-    version = aws_launch_template.my_launch_template1.latest_version
+    id = aws_launch_template.my_launch_template.id 
+    version = aws_launch_template.my_launch_template.latest_version
 
   }
   # Instance Refresh

@@ -8,7 +8,7 @@ locals {
   encoded_user_data = base64encode(local.user_data_script)
 }
 # Launch Template Resource
-resource "aws_launch_template" "my_launch_template1" {
+resource "aws_launch_template" "my_launch_template" {
   name_prefix = "${local.name}-"
   description = "My Launch template"
   image_id = data.aws_ami.amzubuntu.id
