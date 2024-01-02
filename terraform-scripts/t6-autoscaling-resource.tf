@@ -10,6 +10,7 @@ resource "aws_autoscaling_group" "my_asg" {
   launch_template {
     id = aws_launch_template.my_launch_template1.id 
     version = aws_launch_template.my_launch_template1.latest_version
+    
   }
   # Instance Refresh
   instance_refresh {
@@ -19,6 +20,8 @@ resource "aws_autoscaling_group" "my_asg" {
     }
     triggers = [ "desired_capacity" ] 
   }
+  
+  
   tag {
     key                 = "Owners"
     value               = "Web-Team"

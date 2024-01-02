@@ -4,7 +4,7 @@ data "aws_ami" "amzubuntu" {
   #owners = [ "424878232361" ]
   filter {
     name = "name"
-    values = [ "Recruitment-ubuntu*" ]
+    values = [ "Recruitment-ubuntu-20-20240102131543" ]
   }
   filter {
     name = "root-device-type"
