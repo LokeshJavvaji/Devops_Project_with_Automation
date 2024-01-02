@@ -31,6 +31,10 @@ resource "aws_iam_role_policy_attachment" "s3_full_access_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
   role       = aws_iam_role.s3_full_access_role.name
 }
+resource "aws_iam_instance_profile" "s3access" {
+  name = "s3access"
+  role = [aws_iam_role.s3_full_access_role.name]
+}
 # Launch Template Resource
 resource "aws_launch_template" "my_launch_template1" {
   name_prefix = "${local.name}-"
@@ -61,6 +65,6 @@ resource "aws_launch_template" "my_launch_template1" {
     }
   }  
   iam_instance_profile {
-    name = aws_iam_role.s3_full_access_role.name
+    name = aws_iam_instance_profile.s3access.name
   }
 }
